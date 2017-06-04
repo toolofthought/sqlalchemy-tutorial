@@ -15,8 +15,11 @@
 SQLAlchemy is a toolkit for python programmers who want or need to use a database to write programs that do so. Django's ORM is a tool for python programmers to quickly model business-level data relationships and use a database for persistent storage. This is really an important distinction; the Django ORM interface is focused on the application's data model, whereas SQLAlchemy's interface is focused on the underlying data store. In Django, your application is first class; in Alchemy, it isn't. As an example, look at a simple usage of a many-to-many relationship in each:
 
 > Django: Book.objects.filter(author__age=27)
+
 > SQLAlchemy: session.query(Book).join(Book, Author).filter(Author.age==27)
 
 Note that Django's API is entirely concerned with the relationship between the application-level abstractions 'Book' and 'Author', whereas the Alchemy version includes far more details about what is actually going to happen when executed. This example exposes the different assumptions the ORMs have to live with, as well: implicit within Django's design are decisions on the way connections are made to the database, how to evaluate queries (lazily or eagerly), whereas in SQLAlchemy these details are in plain sight.
+
+[source](http://jmoiron.net/blog/about-sqlalchemy-and-djangos-orm/)
 ### update ###
 ### delete ###
